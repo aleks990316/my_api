@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
         array_hash = []
         projects = Project.all
         for project in projects 
-            tasks = Todo.where(id_project: project.id)
+            tasks = Todo.where(id_project: project.id).select(:id, :text, :iscompleted)
             hash = {"id" => project.id, "title" => project.title, "todos" => tasks}
             array_hash.push(hash)
         end 
