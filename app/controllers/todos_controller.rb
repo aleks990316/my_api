@@ -2,7 +2,7 @@ class TodosController < ApplicationController
     def update
         todo = Todo.find_by(id: params[:id], id_project: params[:project_id])
         if todo
-            todo.update(iscompleted: true)
+            todo.update(iscompleted: !:iscompleted)
         end
     end
     def create
